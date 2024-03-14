@@ -18,9 +18,11 @@ let now = new Date(Date.now());
 
 if (now.getMonth()+1 == 3 && now.getDate() == 14){
     document.getElementById("date").innerHTML = "happy PI day 🎉";
+    document.getElementById("description").content = "happy PI day 🎉";
 } else {
     let days = (now.getMonth()+1)*30+now.getDate();
     document.getElementById("date").innerHTML = days.toString()+" days left until the PI day";
+    document.getElementById("description").content = days.toString()+" days left until the PI day";
 }
 
 document.getElementById("search").addEventListener("click", (ev)=>{
@@ -37,4 +39,6 @@ document.getElementById("search").addEventListener("click", (ev)=>{
     }
     textarea.select();
     textarea.setSelectionRange(start, end);
+
+    document.getElementById("alert").innerText = q.toString()+" is the "+start.toString()+"th number of pi (the first "+(text.length-1).toString()+" number of PI)"
 })
