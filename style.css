@@ -1,0 +1,18 @@
+body {
+    background-color: #333;
+}
+
+* {
+    color: white;
+}
+
+.piShow {
+    color: black;
+    min-width: 100%;
+    min-height: 60%;
+}
+
+.piShow::selection {
+    color: white;
+    background-color: black;
+}
