@@ -14,13 +14,26 @@ req.onload = (ev)=>{
 }
 req.send();
 
+function daysLeftUntilPiDay() {
+    const currentDate = new Date();
+    const piDay = new Date(currentDate.getFullYear(), 2, 14); // March 14th
+  
+    // If the current date is after PI Day, set PI Day to next year
+    if (currentDate > piDay) {
+      piDay.setFullYear(currentDate.getFullYear() + 1);
+    }
+  
+    const differenceInMs = piDay.getTime() - currentDate.getTime();
+    return Math.floor(differenceInMs / (1000 * 3600 * 24));
+}
+
 let now = new Date(Date.now());
 
-if (now.getMonth()+1 == 3 && now.getDate() == 14){
+let days = daysLeftUntilPiDay();
+if (days == 0){
     document.getElementById("date").innerHTML = "happy PI day 🎉";
     document.getElementById("description").content = "happy PI day 🎉";
 } else {
-    let days = (now.getMonth()+1)*30+now.getDate();
     document.getElementById("date").innerHTML = days.toString()+" days left until the PI day";
     document.getElementById("description").content = days.toString()+" days left until the PI day";
 }
